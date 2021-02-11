@@ -86,6 +86,12 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'wahooo', 
+    date: '1/2/3456', firstParagraph: 'AHHHH', 
+    secondParagraph: 'ooooo', 
+    thirdParagraph: 'uhhhh'
   }
 ];
 
@@ -113,8 +119,8 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   articleHead.textContent = title;
   articleP.textContent = date;
   articleP1.textContent = firstParagraph;
-  articleP1.textContent = secondParagraph;
-  articleP1.textContent = thirdParagraph;
+  articleP2.textContent = secondParagraph;
+  articleP3.textContent = thirdParagraph;
   articleSpan.textContent = '+';
 
 
@@ -124,12 +130,13 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
 
   return article
 }
-console.log(articleMaker(obj));
+// console.log(articleMaker(obj));
 
 const articles = document.querySelector('div.articles');
-data.forEach(obj => articles.appendChild(articleMaker(obj)));
 
-// data.push({title: 'wahooo', date: '1/2/3456', firstParagraph: 'AHHHH', secondParagraph: '', thirdParagraph: ''})
+data.forEach(articleObj => articles.appendChild(articleMaker(articleObj)));
+
+// data.push(articleMaker({title: 'wahooo', date: '1/2/3456', firstParagraph: 'AHHHH', secondParagraph: 'ooooo', thirdParagraph: 'uhhhh'}));
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
