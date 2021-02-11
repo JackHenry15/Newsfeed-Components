@@ -89,7 +89,8 @@ const data = [
   }
 ];
 
-function articleMaker({title, date}){
+
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
   const article = document.createElement('div')
   const articleHead = document.createElement('h2')
   const articleP = document.createElement('p')
@@ -111,6 +112,9 @@ function articleMaker({title, date}){
 
   articleHead.textContent = title;
   articleP.textContent = date;
+  articleP1.textContent = firstParagraph;
+  articleP1.textContent = secondParagraph;
+  articleP1.textContent = thirdParagraph;
   articleSpan.textContent = '+';
 
 
@@ -120,9 +124,12 @@ function articleMaker({title, date}){
 
   return article
 }
-console.log(articleMaker('title','date'));
+console.log(articleMaker(obj));
+
 const articles = document.querySelector('div.articles');
-data.forEach(info => articles.appendChild(articleMaker(info)));
+data.forEach(obj => articles.appendChild(articleMaker(obj)));
+
+// data.push({title: 'wahooo', date: '1/2/3456', firstParagraph: 'AHHHH', secondParagraph: '', thirdParagraph: ''})
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
